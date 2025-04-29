@@ -1,0 +1,4 @@
+export const AuthError = {
+  INVALID_PASSWORD: 'INVALID_PASSWORD',
+  USER_NOT_FOUND: 'CUSTOMER_NOT_FOUND',
+};
