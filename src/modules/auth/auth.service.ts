@@ -8,13 +8,14 @@ import { UserLoginResponseDto } from './dtos/login.dto';
 import { UserError } from '../users/users.error';
 import { RegisterDto } from './dtos/register.dto';
 import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class AuthService {
-  @Inject('USER_REPOSITORY')
-  private userRepository: Repository<User>;
-
   constructor(
+    @InjectRepository(User)
+    private userRepository: Repository<User>,
+
     private usersService: UsersService,
     private readonly jwtService: JwtService,
   ) {}

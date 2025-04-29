@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, Unique } from 'typeorm';
+import { MonthlyFinance } from 'src/modules/monthly-finance/entities/monthlyFinance.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  Unique,
+  OneToMany,
+} from 'typeorm';
 
 @Entity()
 @Unique(['email'])
@@ -24,4 +31,7 @@ export class User {
     length: '100',
   })
   password: string;
+
+  @OneToMany(() => MonthlyFinance, (mf) => mf.user)
+  monthlyFinances: MonthlyFinance[];
 }

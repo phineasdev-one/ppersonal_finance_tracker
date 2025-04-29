@@ -13,7 +13,6 @@ import { ApiKeyStrategy } from './strategy/apiKey.strategy';
 dotenv.config();
 @Module({
   imports: [
-    DatabaseModule,
     UsersModule,
     PassportModule,
     JwtModule.register({
