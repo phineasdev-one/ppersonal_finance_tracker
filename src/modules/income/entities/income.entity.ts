@@ -11,4 +11,7 @@ export class Income {
 
   @Column()
   name: string;
+
+  @Column('float')
+  amount: number;
 }

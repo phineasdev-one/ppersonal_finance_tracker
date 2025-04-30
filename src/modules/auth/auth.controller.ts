@@ -42,20 +42,6 @@ export class AuthController {
     return this.authService.login(req.user);
   }
 
-  // @ApiBearerAuth()
-  // @PrivateRoute()
-  // @Post('logout')
-  // @HttpCode(HttpStatus.OK)
-  // @ApiOperation({
-  //   summary: 'User logout',
-  // })
-  // @ApiResponse({
-  //   description: 'User logout',
-  // })
-  // async logout(@Body() payload: LogoutQueryDto) {
-  //   return this.authService.logout(payload.deviceToken);
-  // }
-
   @Post('/register')
   @ApiOperation({ summary: 'User register a new account' })
   @ApiBody({ type: RegisterDto })
