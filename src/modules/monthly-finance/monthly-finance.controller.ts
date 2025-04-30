@@ -12,9 +12,10 @@ import {
 import { MonthlyFinanceService } from './monthly-finance.service';
 import { CreateMonthlyFinanceDto } from './dtos/createMonthly.dto';
 import { PrivateRoute } from '../auth/auth.decorator';
-import { ApiBody, ApiQuery } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody, ApiQuery } from '@nestjs/swagger';
 import { UpdateMonthlyFinanceDto } from './dtos/update-monthly-finance.dto';
 
+@ApiBearerAuth()
 @Controller('monthly-finance')
 export class MonthlyFinanceController {
   constructor(private readonly monthlyFinanceService: MonthlyFinanceService) {}

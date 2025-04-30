@@ -6,7 +6,9 @@ export class Income {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => MonthlyFinance, (mf) => mf.incomes)
+  @ManyToOne(() => MonthlyFinance, (mf) => mf.incomes, {
+    onDelete: 'CASCADE',
+  })
   monthlyFinance: MonthlyFinance;
 
   @Column()

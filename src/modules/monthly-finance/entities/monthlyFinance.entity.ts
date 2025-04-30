@@ -31,15 +31,23 @@ export class MonthlyFinance {
   @ManyToOne(() => User, (user) => user.monthlyFinances)
   user: User;
 
-  @OneToMany(() => Transaction, (t) => t.monthlyFinance)
+  @OneToMany(() => Transaction, (t) => t.monthlyFinance, {
+    onDelete: 'CASCADE',
+  })
   transactions: Transaction[];
 
-  @OneToMany(() => MonthlyFixedCost, (mfc) => mfc.monthlyFinance)
+  @OneToMany(() => MonthlyFixedCost, (mfc) => mfc.monthlyFinance, {
+    onDelete: 'CASCADE',
+  })
   monthlyFixedCosts: MonthlyFixedCost[];
 
-  @OneToMany(() => CategoryBudget, (cb) => cb.monthlyFinance)
+  @OneToMany(() => CategoryBudget, (cb) => cb.monthlyFinance, {
+    onDelete: 'CASCADE',
+  })
   categoryBudgets: CategoryBudget[];
 
-  @OneToMany(() => Income, (income) => income.monthlyFinance)
+  @OneToMany(() => Income, (income) => income.monthlyFinance, {
+    onDelete: 'CASCADE',
+  })
   incomes: Income[];
 }

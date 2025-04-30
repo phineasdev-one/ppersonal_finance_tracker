@@ -64,6 +64,8 @@ export class AuthService {
   async validateUser(email: string, incomePassword: string) {
     const userExisted = await this.usersService.getUserByEmail(email);
 
+    console.log(userExisted);
+
     if (!userExisted) {
       throw new HttpException(AuthError.USER_NOT_FOUND, HttpStatus.BAD_REQUEST);
     }
