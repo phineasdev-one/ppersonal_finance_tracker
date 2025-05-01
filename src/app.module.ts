@@ -6,13 +6,15 @@ import typeOrmConfig from './config/typeorm.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MonthlyFinanceModule } from './modules/monthly-finance/monthly-finance.module';
 import { TransactionModule } from './modules/transaction/transaction.module';
+import { CategoryModule } from './modules/category/category.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeOrmConfig),
     AuthModule,
     MonthlyFinanceModule,
-    TransactionModule
+    TransactionModule,
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

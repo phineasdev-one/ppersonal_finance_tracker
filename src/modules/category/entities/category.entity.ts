@@ -1,7 +1,8 @@
 import { CategoryBudget } from 'src/modules/category-budget/entities/categoryBudget.entity';
 import { FixedCost } from 'src/modules/fixed-cost/entities/fixedCost.entity';
 import { Transaction } from 'src/modules/transaction/entities/transaction.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from 'src/modules/users/entities/user.entity';
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Category {
@@ -19,4 +20,7 @@ export class Category {
 
   @OneToMany(() => CategoryBudget, (cb) => cb.category)
   categoryBudgets: CategoryBudget[];
+
+  @ManyToOne(() => User, user => user.categories, { onDelete: 'CASCADE' })
+  user: User;
 }

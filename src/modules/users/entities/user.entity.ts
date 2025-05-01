@@ -1,3 +1,4 @@
+import { Category } from 'src/modules/category/entities/category.entity';
 import { MonthlyFinance } from 'src/modules/monthly-finance/entities/monthlyFinance.entity';
 import {
   Entity,
@@ -34,4 +35,7 @@ export class User {
 
   @OneToMany(() => MonthlyFinance, (mf) => mf.user)
   monthlyFinances: MonthlyFinance[];
+
+  @OneToMany(() => Category, (category) => category.user)
+  categories: Category[];
 }
