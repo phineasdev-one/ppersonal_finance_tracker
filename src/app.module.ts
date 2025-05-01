@@ -5,12 +5,14 @@ import { AuthModule } from './modules/auth/auth.module';
 import typeOrmConfig from './config/typeorm.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MonthlyFinanceModule } from './modules/monthly-finance/monthly-finance.module';
+import { TransactionModule } from './modules/transaction/transaction.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeOrmConfig),
     AuthModule,
     MonthlyFinanceModule,
+    TransactionModule
   ],
   controllers: [AppController],
   providers: [AppService],

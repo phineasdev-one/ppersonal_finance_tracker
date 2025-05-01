@@ -1,14 +1,19 @@
 import { Category } from 'src/modules/category/entities/category.entity';
 import { MonthlyFinance } from 'src/modules/monthly-finance/entities/monthlyFinance.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { TransactionType } from '../transactioin.type';
 
 @Entity()
 export class Transaction {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
-  type: string;
+  @Column({
+    type: 'varchar',
+    length: '50',
+    nullable: true,
+  })
+  transactionType: string;
 
   @Column('float')
   amount: number;
