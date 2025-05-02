@@ -7,16 +7,18 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { MonthlyFinanceModule } from './modules/monthly-finance/monthly-finance.module';
 import { TransactionModule } from './modules/transaction/transaction.module';
 import { CategoryModule } from './modules/category/category.module';
+import { FixedCostModule } from './modules/fixed-cost/fixed-cost.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(typeOrmConfig),
     AuthModule,
-    MonthlyFinanceModule,
-    TransactionModule,
     CategoryModule,
+    FixedCostModule,
+    TransactionModule,
+    MonthlyFinanceModule,
+    TypeOrmModule.forRoot(typeOrmConfig),
   ],
-  controllers: [AppController],
   providers: [AppService],
+  controllers: [AppController],
 })
 export class AppModule {}

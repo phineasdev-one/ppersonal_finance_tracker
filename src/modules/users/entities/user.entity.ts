@@ -1,4 +1,5 @@
 import { Category } from 'src/modules/category/entities/category.entity';
+import { FixedCost } from 'src/modules/fixed-cost/entities/fixedCost.entity';
 import { MonthlyFinance } from 'src/modules/monthly-finance/entities/monthlyFinance.entity';
 import {
   Entity,
@@ -6,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
   Unique,
   OneToMany,
+  ManyToMany,
 } from 'typeorm';
 
 @Entity()
@@ -38,4 +40,7 @@ export class User {
 
   @OneToMany(() => Category, (category) => category.user)
   categories: Category[];
+
+  @ManyToMany(() => FixedCost, (fixedCost) => fixedCost.users)
+  fixedCosts: FixedCost[];
 }
